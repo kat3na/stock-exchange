@@ -5,7 +5,7 @@ import { createClient } from '@supabase/supabase-js';
 
 // ✅ Fix: use `as any` to bypass the unsupported API version error
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-04-30.basil' as any,
+  apiVersion: '2024-08-16.basil' as any,
 });
 
 const supabase = createClient(
