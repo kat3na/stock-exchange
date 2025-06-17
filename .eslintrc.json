@@ -1,76 +1,64 @@
 {
-    "root": true,
-    "extends": [
-      "next/core-web-vitals",
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:@next/next/recommended"
-      
-    ],
-    "plugins": [
-      "react",
-      
-      "unused-imports"
-    ],
-    "rules": {
-      // React rules
-      "react/react-in-jsx-scope": "off", // No need for React import with JSX Transform in React 17+
-      "react/prop-types": "off", // Turn off PropTypes validation (you might use TypeScript)
-      "react/jsx-uses-react": "off", // No need for React import with JSX Transform
-      "react/jsx-uses-vars": "error", // Ensure variables used in JSX are properly declared
-  
-      // Next.js rules
-      "next/no-html-link-for-pages": "error", // Ensures link href points to Next.js pages
-  
-      // Tailwind CSS plugin rules
-      
-      "tailwindcss/no-custom-classname": "off", // Allow custom class names
-  
-      // Miscellaneous rules
-      "unused-imports/no-unused-imports": "error", // Removes unused imports
-      "no-console": "warn", // Warn about console logs (you can change to 'error' in production)
-      "no-debugger": "warn", // Warn about debugger statements
-      "no-var": "error", // Enforce `let` and `const` over `var`
-      "prefer-const": "error", // Enforce `const` over `let` when variables are not reassigned
-      "react-hooks/rules-of-hooks": "error", // Enforce rules of hooks
-      "react-hooks/exhaustive-deps": "warn" // Ensure hooks dependencies are correct
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      },
-      "tailwindcss": {
-        "config": "./tailwind.config.js"
+  "root": true,
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@next/next/recommended"
+  ],
+  "plugins": [
+    "react",
+    "unused-imports"
+  ],
+  "rules": {
+    // React rules
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react/jsx-uses-react": "off",
+    "react/jsx-uses-vars": "error",
+
+    // Next.js rules
+    "next/no-html-link-for-pages": "error",
+
+    // Miscellaneous rules
+    "unused-imports/no-unused-imports": "error",
+    "no-console": "warn",
+    "no-debugger": "warn",
+    "no-var": "error",
+    "prefer-const": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "extends": [
+        "next/core-web-vitals"
+      ],
+      "plugins": ["@typescript-eslint", "unused-imports"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "unused-imports/no-unused-imports": "error",
+        "react/prop-types": "off"
       }
-    },
-    "env": {
-      "browser": true,
-      "node": true,
-      "es2021": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 2020,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "overrides": [
-      {
-        "files": ["**/*.ts", "**/*.tsx"],
-        "parser": "@typescript-eslint/parser",
-        "extends": [
-          "plugin:@typescript-eslint/recommended",
-          "next/core-web-vitals"
-          
-        ],
-        "plugins": ["@typescript-eslint", "tailwindcss", "unused-imports"],
-        "rules": {
-          "@typescript-eslint/no-explicit-any": "off", // Allow usage of `any` type in TypeScript
-          "unused-imports/no-unused-imports": "error", // Removes unused imports in TypeScript
-          "react/prop-types": "off" // Disable PropTypes rule as TypeScript does this already
-        }
-      }
-    ]
-  }
-  
+    }
+  ]
+}
