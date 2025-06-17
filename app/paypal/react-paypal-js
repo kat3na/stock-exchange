@@ -1,0 +1,54 @@
+'use client';
+
+import React, { useState } from 'react';
+import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js';
+import styles from './BuyStock.module.css';
+import { useRouter } from 'next/navigation';
+
+const paypal = () => {
+  const [paid, setPaid] = useState(false);
+  const router = useRouter();
+
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.title}>Buy Stock</h1>
+      <p className={styles.description}>Purchase shares securely using PayPal.</p>
+
+      <PayPalScriptProvider
+        options={{
+          'client-id': process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || 'test',
+          currency: 'USD',
+        }}
+      >
+        <PayPalButtons
+          style={{ layout: 'vertical' }}
+          createOrder={(data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: '50.00', // Replace with dynamic value if needed
+                  },
+                },
+              ],
+            });
+          }}
+          onApprove={(data, actions) => {
+            return actions.order?.capture().then(() => {
+              setPaid(true);
+              alert('Payment successful!');
+            });
+          }}
+          onError={(err) => {
+            console.error('PayPal Checkout Error', err);
+            alert('Payment failed.');
+          }}
+        />
+      </PayPalScriptProvider>
+
+      {paid && <p className={styles.success}>Thank you! Your stock purchase was successful.</p>}
+    </div>
+  );
+};
+
+export default paypal;

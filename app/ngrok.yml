@@ -1,0 +1,5 @@
+tunnels:
+  piexchange:
+    proto: http
+    addr: 3000
+    domain: piexchangewallet.com

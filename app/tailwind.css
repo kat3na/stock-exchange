@@ -1,0 +1,31 @@
+/* globals.css or tailwind.css */
+body {
+    --primary10: #aad6ff;
+    --primary20: #63b7fb;
+    --primary30: #2f96f0;
+    --primary30-a-20: #2f96f033;
+    /* (other CSS properties here) */
+}
+
+.css-g9dfms {
+    padding-top: 140px;
+    overflow-x: hidden;
+}
+
+.css-g9dfms:before {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    content: '';
+    z-index: 1;
+    display: block;
+    background-image: linear-gradient(to bottom, #202e5a 0, transparent 100%);
+}
+
+::selection {
+    background: rgb(57, 178, 255);
+    color: rgb(255, 255, 255);
+}

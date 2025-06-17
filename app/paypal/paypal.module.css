@@ -1,0 +1,28 @@
+.container {
+    max-width: 600px;
+    margin: 3rem auto;
+    background: #0d0d26;
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00c6ff;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .success {
+    margin-top: 2rem;
+    color: #00e676;
+    font-weight: bold;
+  }
+  
